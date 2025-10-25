@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Home</title>
+</head>
+<body>
+  <h1>📝 My Blog</h1>
+  <a href="/new">➕ Create New Post</a>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li>
+        <a href="/posts/<%= post.id %>"><%= post.title %></a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
