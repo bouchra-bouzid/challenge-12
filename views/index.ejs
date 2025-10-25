@@ -2,16 +2,25 @@
 <html>
 <head>
   <title>Blog Home</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>📝 My Blog</h1>
-  <a href="/new">➕ Create New Post</a>
-  <ul>
-    <% posts.forEach(post => { %>
-      <li>
-        <a href="/posts/<%= post.id %>"><%= post.title %></a>
-      </li>
-    <% }) %>
-  </ul>
+  <div class="container">
+    <h1>📝 My Blog</h1>
+    <a href="/new">➕ Create New Post</a>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <a href="/posts/<%= post._id %>"><%= post.title %></a>
+          <div class="actions">
+            <a href="/posts/edit/<%= post._id %>">✏️ Edit</a>
+            <form action="/posts/delete/<%= post._id %>" method="POST" style="display:inline;">
+              <button type="submit">🗑️ Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
 </body>
 </html>
